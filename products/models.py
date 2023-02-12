@@ -6,6 +6,9 @@ class Category(models.Model):
         db_table = "categories"
         verbose_name = _("Category")
         verbose_name_plural = _("Categories")
+    
+    def __str__(self):
+        return self.title
           
     parent = models.ForeignKey("self", verbose_name=_("parent"), blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(_('title'), max_length=50)
@@ -14,7 +17,7 @@ class Category(models.Model):
     is_enable = models.BooleanField(_('is enable'), default=True)
     created_time = models.DateTimeField(_('created time'), auto_now_add=True)
     updated_time = models.DateTimeField(_('updated time'), auto_now=True)
-    
+
 
 class Product(models.Model):
     class Meta:
