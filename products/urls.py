@@ -4,12 +4,12 @@ from .views import *
 # app_name = 'products'
 
 urlpatterns = [
-    path('categories/', CategoryListCreateView.as_view(), name='category-list'),
-    path('categories/<int:pk>/', CategoryRetrieveUpdateDestroyView.as_view(), name='category-detail'),
+    path('categories/', CategoryListView.as_view(), name='category-list'),
+    path('categories/<int:pk>/', CategoryDetailView.as_view(), name='category-detail'),
     
-    path('products/', ProductListCreateView.as_view(), name='product-list'),
-    path('products/<int:pk>/', ProductRetrieveUpdateDestroyView.as_view(), name='product-detail'),
+    path('products/', ProductListView.as_view(), name='product-list'),
+    path('products/<int:pk>/', ProductDetailView.as_view(), name='product-detail'),
     
-    path('products/<int:product_pk>/files/', FileListCreateView.as_view(), name='file-list'),
-    path('products/<int:product_pk>/files/<int:pk>/', FileRetrieveUpdateDestroyView.as_view(), name='file-detail'),
+    path('products/<int:product_pk>/files/', FileListView.as_view(), name='file-list'),
+    path('products/<int:product_pk>/files/<int:pk>/', FileDetailView.as_view(), name='file-detail'),
 ]
